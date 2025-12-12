@@ -46,11 +46,11 @@ if entrada == "S":
     entrada_calificacion = input("Sobresaliente - Notable - Bien - Suficiente - Necesita mejorar - Mostrar todo: ").upper()
 
 for alumno in alumnos:
-    nota_final = (0.1*(sum(alumno['trabajos']) / len(alumno['trabajos']))) + (0.5*(sum(alumno['test']) / len(alumno['test']))) + (0.4*(sum(alumno['practicas']) / len(alumno['practicas'])))
+    nota_final = (0.1*(sum(alumno.get('trabajos')) / len(alumno.get('trabajos')))) + (0.5*(sum(alumno.get('test')) / len(alumno.get('test')))) + (0.4*(sum(alumno.get('practicas')) / len(alumno.get('practicas'))))
     evaluacion = clasificar(nota_final)
 
     if entrada == 'S':
         if entrada_calificacion == evaluacion.upper() or entrada_calificacion == "MOSTRAR TODO":
-            sacarPorPantalla(alumno["nombre"], nota_final, evaluacion)
+            sacarPorPantalla(alumno.get("nombre"), nota_final, evaluacion)
     elif entrada == 'N': 
-        sacarPorPantalla(alumno["nombre"], nota_final, evaluacion)
+        sacarPorPantalla(alumno.get("nombre"), nota_final, evaluacion)
